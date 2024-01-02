@@ -1,0 +1,15 @@
+const WebSocket=require("ws");
+const wss=new WebSocket.Server({port:8080});
+wss.on("connection",ws=>{
+    console.log("new client connected");
+  
+    ws.on("close",()=>{
+        console.log("client disconnected");
+    });
+
+    ws.on("message",function incoming(message){
+    
+  console.log("got it "+message);
+       
+    });
+});
